@@ -7,7 +7,10 @@
     "node": "14.x"
   },
   "scripts": {
-    "start": "node index.ts",
+    "start": "ts-node src/index.ts",
+    "dev": "nodemon src/index.ts",
+    "build": "tsc",
+    "vercel-build": "ehco hello",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
