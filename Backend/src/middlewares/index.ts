@@ -1,9 +1,9 @@
-import express from 'express';
+import express, { NextFunction, Request, Response } from 'express';
 import { get, merge } from 'lodash';
 
 import { getUserBySessionToken } from '../db/users';
 
-export const isOwner = async (req: express.Request, res: express.Response, next: express.NextFunction) => {
+export const isOwner = async (req: Request , res: Response, next: NextFunction) => {
     try {
         const { id } = req.params;
         const currentUserId = get(req, 'identity._id') as string;
@@ -18,12 +18,12 @@ export const isOwner = async (req: express.Request, res: express.Response, next:
 
          next();
     } catch (error){
-        console.log(error)
+        console.log(error);
         return res.sendStatus(400);
     }
 }
 
-export const isAuthenticated = async (req: express.Request, res: express.Response, next: express.NextFunction) => {
+export const isAuthenticated = async (req: Request , res: Response, next: NextFunction) => {
     try {
         const sessionToken = req.cookies['LOGESH-AUTH'];   
         
@@ -41,7 +41,7 @@ export const isAuthenticated = async (req: express.Request, res: express.Respons
 
         return next();
     } catch (error){
-        console.log(error)
+        console.log(error);
         return res.sendStatus(400);
     }
 } 
