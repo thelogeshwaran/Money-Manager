@@ -7,10 +7,9 @@
     "node": "18.x"
   },
   "scripts": {
-    "start": "ts-node index.ts",
-    "dev": "nodemon src/index.ts",
-    "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon ./index.ts",
+    "dist:prod": "NODE_ENV=production tsc",
+    "dist": "NODE_ENV=development tsc"
   },
   "keywords": [],
   "author": "",
